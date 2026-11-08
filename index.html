@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weiterleitung zu diagrams.net</title>
+  <script>
+    // Basis-Adresse der GitHub Pages Seite (ohne abschließenden Slash)
+    var base = "https://gabrielnt04.github.io/DemoRepo";
+
+    // Bibliotheken, die in draw.io geladen werden sollen
+    var libs = [
+      base + "/AILib.xml",
+      base + "/ftuml_use_cases.xml"
+    ];
+
+    // Jede Adresse mit "U" präfixen, URL-kodieren und mit ";" verbinden
+    var clibs = libs
+      .map(function (url) { return "U" + encodeURIComponent(url); })
+      .join(";");
+
+    // Weiterleitung (replace, damit der Zurück-Button nicht in einer Schleife landet)
+    window.location.replace("https://app.diagrams.net/?clibs=" + clibs);
+  </script>
+  <!-- Fallback ohne JavaScript (statischer Link, bereits kodiert) -->
+  <noscript>
+    <meta http-equiv="refresh"
+          content="0; url=https://app.diagrams.net/?clibs=Uhttps%3A%2F%2Fgabrielnt04.github.io%2FDemoRepo%2FAILib.xml;Uhttps%3A%2F%2Fgabrielnt04.github.io%2FDemoRepo%2Fftuml_use_cases.xml">
+  </noscript>
+</head>
+<body>
+  <p>Du wirst zu diagrams.net weitergeleitet …
+    <a href="https://app.diagrams.net/?clibs=Uhttps%3A%2F%2Fgabrielnt04.github.io%2FDemoRepo%2FAILib.xml;Uhttps%3A%2F%2Fgabrielnt04.github.io%2FDemoRepo%2Fftuml_use_cases.xml">Falls nichts passiert, hier klicken.</a>
+  </p>
+</body>
+</html>
